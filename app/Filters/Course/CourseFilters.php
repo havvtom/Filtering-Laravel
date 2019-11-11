@@ -2,20 +2,14 @@
 
 namespace App\Filters\Course;
 use Illuminate\Http\Request;
+use App\Filters\FiltersAbstract;
+// use Illuminate\Database\Eloquent\Builder;
 
-class CourseFilters(){
+class CourseFilters extends FiltersAbstract{
 
-	protected $request;
+	protected $filters = [
 
-	public function __construct (Request $request){
+		'access' => \App\Filters\Course\Access::class,
 
-		$this->request = $request;
-
-	}
-
-	public function filter(Builder $builder){
-
-		return $builder;
-		
-	}
+	];
 }
