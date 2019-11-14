@@ -17,12 +17,11 @@ abstract class FiltersAbstract{
 
 		public function filter($builder){
 
-			foreach($this->getfilters() as $filter => $class){
-				var_dump($this->resolveFilter($filter));
+			foreach($this->getfilters() as $filter => $value){
+				
+				$this->resolveFilter($filter)->filter($builder, $value);
 				
 			}
-
-			return $builder;
 			
 		}
 
@@ -39,4 +38,11 @@ abstract class FiltersAbstract{
 
 			return $this->filterFilters($this->filters);
 		}
+
+		public function add(array $filters){
+
+			$this->filters = array_merge($filters, $this->filters);
+
+			return $this;
+	}
 }

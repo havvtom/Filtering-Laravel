@@ -11,7 +11,7 @@ class CourseFilters extends FiltersAbstract{
 	protected $filters = [
 
 		'access' => AccessFilter::class,
-		'difficulty' => DifficultyFilter::class,
-
+		'difficulty' => \App\Filters\Course\DifficultyFilter::class,
 	];
+
 }

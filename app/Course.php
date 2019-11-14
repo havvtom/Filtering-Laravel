@@ -8,9 +8,9 @@ use App\Filters\Course\CourseFilters;
 
 class Course extends Model
 {
-    public function scopeFilter($query, $request){
+    public function scopeFilter($query, $request, $filters=[]){
 
-    return	(new CourseFilters($request))->filter($query);
+    return	(new CourseFilters($request))->add($filters)->filter($query);
 
     }
 }
